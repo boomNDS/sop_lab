@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo3.Demo3ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.195 s <<< FAILURE! - in com.example.demo3.Demo3ApplicationTests
+contextLoads(com.example.demo3.Demo3ApplicationTests)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serviceConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'example.property' in value "${example.property}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'example.property' in value "${example.property}"
+
