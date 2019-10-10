@@ -1,13 +1,8 @@
-package com.example.DiscoveryClient;
+package com.example.ServiceDiscoveryClient;
 
 public class Student {
-    public Student(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    public  Student(){
-        
-    }
+    private String id;
+    private String name;
 
     public String getId() {
         return id;
@@ -25,6 +20,8 @@ public class Student {
         this.name = name;
     }
 
-    private  String id;
-    private  String name;
+    public Student(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

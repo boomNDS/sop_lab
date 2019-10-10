@@ -1,28 +1,27 @@
-package com.example.DiscoveryClient;
+package com.example.ServiceDiscoveryClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableEurekaClient
 @RestController
-//@EnableFeignClients
-public class DiscoveryClientApplication {
-	@Autowired
-	private ServiceDiscoveryClient servicediscoveryclient;
+public class ServiceDiscoveryClientApplication {
+	Student student = new Student("60070057","prapawity");
 	public static void main(String[] args) {
-		SpringApplication.run(DiscoveryClientApplication.class, args);
+		SpringApplication.run(ServiceDiscoveryClientApplication.class, args);
 	}
 	@RequestMapping("/")
-	String welcome(){
-		return  "welcome";
+	public String home(){
+		return "welcome";
 	}
-	@RequestMapping("/home")
-	Student home(){
-		return servicediscoveryclient.getStudent("60070057");
+	@RequestMapping("/student")
+	Student home2(){
+		return student;
 	}
 }

@@ -15,15 +15,14 @@ public class ServiceDiscoveryClient {
 
     @Autowired
     private DiscoveryClient discoveryClient;
+
+
     public Student getStudent(String studentId) {
         RestTemplate restTemplate = new RestTemplate();
         List<ServiceInstance> instances =
                 discoveryClient.getInstances("studentservice");
-        String serviceUri = String.format("%s/v1/student/%s"
-                ,instances.get(0).getUri().toString(), studentId);
-        ResponseEntity< Student > restExchange =
-                restTemplate.exchange( serviceUri, HttpMethod.GET
-                        , null, Student.class, studentId);
+        String serviceUri = String.format("%s/student" ,instances.get(0).getUri().toString(),studentId);
+        ResponseEntity< Student > restExchange = restTemplate.exchange( serviceUri, HttpMethod.GET, null, Student.class, studentId);
 
         return restExchange.getBody();
     }
